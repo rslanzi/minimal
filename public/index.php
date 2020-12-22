@@ -14,6 +14,9 @@ $container->register('listener.response', ResponseListener::class)->setArguments
 $container->getDefinition('dispatcher')->addMethodCall('addSubscriber', [new Reference('listener.string_response')]);
 $container->setParameter('routes', include __DIR__.'/../routes/web.php');
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../');
+$dotenv->load();
+
 $request = Request::createFromGlobals();
 
 $response = $container->get('framework')->handle($request);

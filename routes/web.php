@@ -6,6 +6,9 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
+// $routes->add('404', new Route('/', ['_controller' => [new ErrorController(), 'code404']]));
+// $routes->add('500', new Route('/', ['_controller' => [new ErrorController(), 'code500']]));
+
 $routes->add('home', new Route('/', [
 	'_controller' => [new HomeController(), 'index'],
 ]));
