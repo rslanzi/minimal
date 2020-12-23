@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace Minimal\Controller;
 
+use Minimal\Env;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 
@@ -9,7 +10,7 @@ class ErrorController
 {
 	public function exception(FlattenException $exception)
 	{
-		if (env('APP_DEBUG', 'false') === true) {
+		if (Env::get('APP_DEBUG', 'false') === true) {
 			$whoops = new \Whoops\Run;
 			$whoops->allowQuit(false);
 			$whoops->writeToOutput(false);

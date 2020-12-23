@@ -29,7 +29,7 @@ $containerBuilder->register('listener.router', RouterListener::class)
 $containerBuilder->register('listener.response', ResponseListener::class)
     ->setArguments(['UTF-8']);
 $containerBuilder->register('listener.exception', ErrorListener::class)
-    ->setArguments(['App\Controller\ErrorController::exception']);
+    ->setArguments(['Minimal\Controller\ErrorController::exception']);
 $containerBuilder->register('dispatcher', EventDispatcher::class)
     ->addMethodCall('addSubscriber', [new Reference('listener.router')])
     ->addMethodCall('addSubscriber', [new Reference('listener.response')])
