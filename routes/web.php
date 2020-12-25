@@ -1,7 +1,7 @@
 <?php
 
-use App\Controller\BlogController;
-use App\Controller\HomeController;
+use App\Controllers\BlogController;
+use App\Controllers\HomeController;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
