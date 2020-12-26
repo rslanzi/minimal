@@ -2,7 +2,7 @@
 
 namespace Minimal\Controllers;
 
-use Jenssegers\Blade\Blade;
+use eftec\bladeone\BladeOne;
 
 class BaseController {
 
@@ -10,15 +10,16 @@ class BaseController {
 
 	public function __construct()
 	{
-		$this->blade = new Blade(
-			'/resources/views',
-			'/storage/framework/views'
+		$this->blade = new BladeOne(
+			__DIR__ . '/../../../resources/views',
+			__DIR__ . '/../../../storage/framework/views'
 		);
+		$this->blade->pipeEnable = true;
 	}
 
     public function render(string $view, array $params)
     {
-        return $this->blade->render($view, $params);
+        return $this->blade->run($view, (array) $params);
 	}
 
 }
