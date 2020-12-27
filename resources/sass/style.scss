@@ -1,0 +1,26 @@
+/**
+ * TailwindCSS 
+ * For info: https://tailwindcss.com/docs
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .nav-link {
+        @apply font-medium text-gray-500 transition duration-150 ease-in-out ml-6;
+        @apply hover:text-gray-900;
+    }
+
+    .nav-link-mobile {
+        @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 transition duration-150 ease-in-out;
+        @apply hover:text-white hover:bg-blue-400;
+        @apply focus:outline-none focus:text-white focus:bg-blue-400;
+    }
+
+}

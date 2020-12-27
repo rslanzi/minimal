@@ -2,15 +2,17 @@
 
 namespace App\Controllers;
 
-class BlogController
+use Minimal\Controllers\BaseController;
+
+class BlogController extends BaseController
 {
     public function index()
     {
-        return 'Blog index';
+        return $this->render('home', ['title' => 'Blog index']);
     }
 
     public function show()
     {
-        return 'Blog show';
+        return $this->render('home', ['title' => 'Blog show']);
     }
 }
