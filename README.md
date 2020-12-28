@@ -2,16 +2,6 @@
 
 [![Latest Stable Version](https://poser.pugx.org/rslanzi/minimal/v/stable)](https://packagist.org/packages/rslanzi/minimal) 
 [![License](https://poser.pugx.org/rslanzi/minimal/license)](https://packagist.org/packages/rslanzi/minimal)
-[![Mahmoud Zalt](https://img.shields.io/badge/Author-Mahmoud%20Zalt-orange.svg)](http://www.zalt.me)
-
-
-
-
-
-
-
-
-
 
 
 **Minimal Framework** give you some Laravel's magic in less than 10MB. Ideal for landing pages and small web sites.
@@ -32,11 +22,6 @@ Minimal includes:__
 - Testing: **PHPUnit** (`phpunit.xml`)
 - Package Manager: **Composer** (`composer.json`)  
   
-
-
-
-
-
 <a name="Installation"></a>
 ## Installation
 
@@ -48,8 +33,6 @@ Minimal includes:__
 ##### Installation Steps
 
 1. `composer require rslanzi/minimal`
-
-
 
 
 <a name="Customization"></a>
@@ -65,12 +48,9 @@ $ ./vendor/bin/phpunit
 ```
 
 
-
-
 ## Credits
 
 - [Riccardo Slanzi](https://github.com/rslanzi)
-
 
 
 ## License
