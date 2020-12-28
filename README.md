@@ -13,26 +13,26 @@
 Minimal includes:__
 
 - **Rich package skeleton**, (containing common files required by almost every PHP package)
-- Ready **Unit Test**
-- Ready **config files reader**
-- Ready **Servie Provider** (for Laravel)
-- Ready **Facade Class** (for Laravel)
-- Version Control: **Git** (`.gitattributes`, `.gitignore`)
-- Continuous Integration: **Travis** and **Scrutinizer** (`.scrutinizer.yml`, `.travis.yml`)
+- Version Control: **Git** (`.gitignore`)
+- Rounting: **Symfony**
+- Dependency injection: **Symfony**
+- Environment variables: **phpdotenv** (`.env`)
+- Template scripting: **Blade**
 - Testing: **PHPUnit** (`phpunit.xml`)
 - Package Manager: **Composer** (`composer.json`)  
+- CSS: **TailwindCSS** (`tailwind.config.js`)  
+- JS: **AlpineJS**  
   
 <a name="Installation"></a>
 ## Installation
 
 
 ##### Software Requirement
-- Composer
+- Composer - https://getcomposer.org
 
 
 ##### Installation Steps
-
-1. `composer require rslanzi/minimal`
+`composer require rslanzi/minimal`
 
 
 <a name="Customization"></a>
