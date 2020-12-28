@@ -2,9 +2,9 @@
 
 [![Latest Stable Version](https://poser.pugx.org/rslanzi/minimal/v/stable)](https://packagist.org/packages/rslanzi/minimal) 
 [![License](https://poser.pugx.org/rslanzi/minimal/license)](https://packagist.org/packages/rslanzi/minimal)
+[![Riccardo Slanzi](https://img.shields.io/badge/Author-Riccardo%20Slanzi-orange)](https://riccardoslanzi.com)
 
-
-**Minimal Framework** give you some Laravel's magic in less than 10MB. Ideal for landing pages and small web sites.
+**Minimal Framework** give you some of Laravel's magic in less than 10MB. Ideal for landing pages and small web sites.
 
 
 <a name="Highlights"></a>
