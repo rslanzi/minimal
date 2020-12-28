@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use Minimal\Framework;
 use Symfony\Component\Routing;
 use Symfony\Component\HttpKernel;
@@ -16,6 +17,8 @@ use Symfony\Component\HttpKernel\EventListener\RouterListener;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\HttpKernel\EventListener\ResponseListener;
 
+$dotenv = (Dotenv::createImmutable(__DIR__.'/../'))->load();
+
 $containerBuilder = new DependencyInjection\ContainerBuilder();
 $containerBuilder->register('context', RequestContext::class);
 $containerBuilder->register('matcher', UrlMatcher::class)
@@ -29,7 +32,7 @@ $containerBuilder->register('listener.router', RouterListener::class)
 $containerBuilder->register('listener.response', ResponseListener::class)
     ->setArguments(['UTF-8']);
 $containerBuilder->register('listener.exception', ErrorListener::class)
-    ->setArguments(['Minimal\Controller\ErrorController::exception']);
+    ->setArguments(['Minimal\Controllers\ErrorController::exception']);
 $containerBuilder->register('dispatcher', EventDispatcher::class)
     ->addMethodCall('addSubscriber', [new Reference('listener.router')])
     ->addMethodCall('addSubscriber', [new Reference('listener.response')])

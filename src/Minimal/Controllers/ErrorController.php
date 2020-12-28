@@ -1,6 +1,6 @@
 <?php
 
-namespace Minimal\Controller;
+namespace Minimal\Controllers;
 
 use Minimal\Env;
 use Symfony\Component\HttpFoundation\Response;

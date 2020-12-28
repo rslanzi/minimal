@@ -1,9 +1,16 @@
 {
     "name": "rslanzi/minimal",
+    "description": "Nextpack is a PHP Packages Framework (Starter Project)",
+    "license": "MIT",
+    "keywords": [
+        "NextPack",
+        "Starter"
+    ],
     "authors": [
         {
             "name": "Riccardo Slanzi",
-            "email": "rslanzi@gmail.com"
+            "email": "rslanzi@gmail.com",
+            "homepage": "https://riccardoslanzi.com",
         }
     ],
     "require": {
@@ -28,5 +35,14 @@
         "files": [
             "src/helpers.php"
         ]
-    }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "stable"
 }
