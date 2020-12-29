@@ -1,6 +1,6 @@
 <?php
 
-use Minimal\Env;
+use Rslanzi\Minimal\Env;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 

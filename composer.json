@@ -10,7 +10,7 @@
         {
             "name": "Riccardo Slanzi",
             "email": "rslanzi@gmail.com",
-            "homepage": "https://riccardoslanzi.com",
+            "homepage": "https://riccardoslanzi.com"
         }
     ],
     "require": {
@@ -29,7 +29,16 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/",
+            "Rslanzi\\Minimal\\": "src/",
+            "App\\": "app/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rslanzi\\Minimal\\Tests\\": "tests/",
             "App\\": "app/"
         },
         "files": [
@@ -44,5 +53,5 @@
             "dev-master": "0.1-dev"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "alpha"
 }

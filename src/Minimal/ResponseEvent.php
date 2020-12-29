@@ -1,6 +1,6 @@
 <?php
 
-namespace Minimal;
+namespace Rslanzi\Minimal;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

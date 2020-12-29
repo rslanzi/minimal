@@ -1,6 +1,6 @@
 <?php
 
-namespace Minimal\Events;
+namespace Rslanzi\Minimal\Events;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;

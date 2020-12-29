@@ -3,7 +3,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
-use Minimal\Events\StringResponseListener;
+use Rslanzi\Minimal\Events\StringResponseListener;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\DependencyInjection\Reference;

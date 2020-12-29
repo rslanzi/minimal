@@ -1,6 +1,6 @@
 <?php
 
-namespace Minimal\Controllers;
+namespace Rslanzi\Minimal\Controllers;
 
 use eftec\bladeone\BladeOne;
 

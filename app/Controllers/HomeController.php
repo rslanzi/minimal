@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Minimal\Controllers\BaseController;
+use Rslanzi\Minimal\Controllers\BaseController;
 
 class HomeController extends BaseController
 {

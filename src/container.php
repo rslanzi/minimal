@@ -1,7 +1,7 @@
 <?php
 
 use Dotenv\Dotenv;
-use Minimal\Framework;
+use Rslanzi\Minimal\Framework;
 use Symfony\Component\Routing;
 use Symfony\Component\HttpKernel;
 use Symfony\Component\HttpFoundation;

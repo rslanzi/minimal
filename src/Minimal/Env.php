@@ -1,6 +1,6 @@
 <?php
 
-namespace Minimal;
+namespace Rslanzi\Minimal;
 
 use Dotenv\Repository\Adapter\PutenvAdapter;
 use Dotenv\Repository\RepositoryBuilder;

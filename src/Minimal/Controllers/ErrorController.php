@@ -1,8 +1,8 @@
 <?php
 
-namespace Minimal\Controllers;
+namespace Rslanzi\Minimal\Controllers;
 
-use Minimal\Env;
+use Rslanzi\Minimal\Env;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 

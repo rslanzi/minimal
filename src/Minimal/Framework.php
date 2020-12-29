@@ -1,6 +1,6 @@
 <?php
 
-namespace Minimal;
+namespace Rslanzi\Minimal;
 
 use Symfony\Component\HttpKernel\HttpKernel;
 
