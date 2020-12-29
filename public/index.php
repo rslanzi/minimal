@@ -2,11 +2,9 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Dotenv\Dotenv;
 use Rslanzi\Minimal\Events\StringResponseListener;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\EventListener\ResponseListener;
 
 $container = include __DIR__.'/../src/container.php';
