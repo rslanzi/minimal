@@ -2,20 +2,17 @@
 
 use Dotenv\Dotenv;
 use Rslanzi\Minimal\Framework;
-use Symfony\Component\Routing;
-use Symfony\Component\HttpKernel;
-use Symfony\Component\HttpFoundation;
 use Symfony\Component\DependencyInjection;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use Symfony\Component\HttpKernel\EventListener\ErrorListener;
-use Symfony\Component\HttpKernel\EventListener\RouterListener;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
+use Symfony\Component\HttpKernel\EventListener\ErrorListener;
 use Symfony\Component\HttpKernel\EventListener\ResponseListener;
+use Symfony\Component\HttpKernel\EventListener\RouterListener;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
 
 $dotenv = (Dotenv::createImmutable(__DIR__.'/../'))->load();
 
@@ -43,7 +40,6 @@ $containerBuilder->register('framework', Framework::class)
         new Reference('controller_resolver'),
         new Reference('request_stack'),
         new Reference('argument_resolver'),
-    ])
-;
+    ]);
 
 return $containerBuilder;

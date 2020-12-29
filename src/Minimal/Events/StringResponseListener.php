@@ -12,7 +12,7 @@ class StringResponseListener implements EventSubscriberInterface
     {
         return ['kernel.view' => 'onView'];
     }
-    
+
     public function onView(ViewEvent $event)
     {
         $response = $event->getControllerResult();
@@ -21,5 +21,4 @@ class StringResponseListener implements EventSubscriberInterface
             $event->setResponse(new Response($response));
         }
     }
-
 }

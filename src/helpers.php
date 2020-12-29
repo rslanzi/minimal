@@ -1,8 +1,6 @@
 <?php
 
 use Rslanzi\Minimal\Env;
-use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 if (! function_exists('env')) {
     /**
@@ -18,29 +16,31 @@ if (! function_exists('env')) {
     }
 }
 
-/** 
- * @todo 
+/**
+ * @todo
  */
 if (! function_exists('route')) {
-    function route($routeName, $routeParams = []) {
-        return '/' . $routeName;
+    function route($routeName, $routeParams = [])
+    {
+        return '/'.$routeName;
     }
 }
 
-/** 
- * @todo 
+/**
+ * @todo
  */
 if (! function_exists('csrf_token')) {
-    function csrf_token() {
-
+    function csrf_token()
+    {
     }
 }
 
-/** 
- * @todo 
+/**
+ * @todo
  */
 if (! function_exists('__')) {
-    function __($text) {
+    function __($text)
+    {
         return $text;
     }
 }
