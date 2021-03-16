@@ -10,7 +10,7 @@
 <a name="Highlights"></a>
 ## Highlights
 
-Minimal includes:__
+Minimal includes:
 
 - **Rich package skeleton**, (containing common files required by almost every PHP package)
 - Version Control: **Git** (`.gitignore`)
@@ -20,25 +20,22 @@ Minimal includes:__
 - Template scripting: **Blade**
 - Testing: **PHPUnit** (`phpunit.xml`)
 - Package Manager: **Composer** (`composer.json`)  
-- CSS: **TailwindCSS** (`tailwind.config.js`)  
+- CSS: **TailwindCSS 2** with full config preset (`tailwind.config.js`)  
 - JS: **AlpineJS**  
   
 <a name="Installation"></a>
 ## Installation
+Require the rslanzi/minimal package with [composer](https://getcomposer.org/).
 
-
-##### Software Requirement
-- Composer - https://getcomposer.org
-
-
-##### Installation Steps
 `composer require rslanzi/minimal`
 
-
-<a name="Customization"></a>
-## Customization
-
-
+<a name="Usage"></a>
+## Usage
+```php
+// index.php
+require_once __DIR__.'/../vendor/autoload.php';
+...
+```
 ## Test
 
 To run the tests, run the following command from the project folder.
@@ -46,6 +43,12 @@ To run the tests, run the following command from the project folder.
 ``` bash
 $ ./vendor/bin/phpunit
 ```
+
+<a name="Contributing"></a>
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 
 ## Credits
@@ -55,4 +58,4 @@ $ ./vendor/bin/phpunit
 
 ## License
 
-The MIT License (MIT). See the [License File](https://github.com/rslanzi/minimal/blob/master/LICENSE) for more information.
+The MIT License (MIT). See the [License File](./LICENSE.md) for more information.

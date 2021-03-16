@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Case study: portare un progetto Laravel da 5.8 a 8.25</h1>
+
+<p>In questi giorni ho deciso di aggiornare un progetto Laravel sul quale non mettevo mano da più di un anno e sul quale, nel tempo, avevano lavorato diversi colleghi.
+Un progetto semplice nelle funzionalità ma parecchio esteso: 274 rotte diverse. Immaginerete quindi che non avevo esattamente sotto controllo tutte le funzionalità aggiunte, rimosse o modificate. E ovviamente non erano presenti test di sorta.
+
+Da dove partire quindi per non rischiare di rompere tutto?
+Ordine
+Per prima cosa, siccome sono un precisetti ma soprattutto perché un progetto chiaro è più semplice da gestire, ho splittato e riorganizzato il file delle rotte in 4 file diversi, per area: frontend, landing, login e backend. Per ora senza fare alcun refactoring: no test, no refactoring. Per sapere come procedere, vi rimando all’articolo Laravel Route Refactoring.
+Factories
+Per procedere alla creazione dei test, occorre creare i model factory. Ovvero delle classi che, assieme a Faker, ci aiuteranno a creare dei dati di mockup da usare nei test al posto dei dati su DB.
+Test
+Terzo step quindi, creare i test. E da qui la domanda successiva? Da cosa partire per creare dei test utili al mio scopo, ovvero poter fare un upgrade in sicurezza? Io sono partito dalle rotte: almeno un test per rotta; almeno 3 test alle rotte protette da autenticazione (guest, user senza privilegi per quella rotta e user con privilegi). Dico almeno perché ovviamente poi vanno testati i comportamenti specifici della rotta e tutte le eventuali condizioni. Risultato: ora ho una test suite con 377 test e 759 assertion.
+When green, refactor can begin!
+Ora che abbiamo dei test per verificare che ogni singola azione della nostra app funzioni a seguito di un cambiamento, possiamo iniziare a mettere mano al codice.
+Sono ritornato alle rotte per uniformare comportamenti, nomi dei parametri, URI e raggruppare sotto route resources le azioni che non lo erano.
+Primo upgrade: Laravel 6
+In questo progetto c’erano un bel po’ di package che, ovviamente, necessitavano di essere aggiornati contemporaneamente al framework. Per ogni package occorre andare a vedere la versione adatta alla nuova versione del framework, aggiornare il file composer.json e procedere all’upgrade. In alcuni casi si possono verificare dei conflitti fra versioni dei vari package. In questo caso, disattivarli tutti e procedere ad installarne ed aggiornarne uno alla volta.
+Da Laravel 5.8 a Laravel 6 fortunatamente ci sono state poche breaking changes e comunque la guida di upgrade è ben fatta.
+Nello specifico del mio caso, risultavano non funzionanti gli helpers method legati alla gestione delle stringhe e degli array (str_ e arr_) poiché sostituiti da due classi specifiche lluminate\Support\Str e lluminate\Support\Arr. Si può ovviare al problema con un package specifico (laravel/helpers) ma io ho preferito aggiornare i singoli usi al nuovo modo per non avere incongruenze fra il codice vecchio e il nuovo.
+Via di test e, quando è di nuovo tutto verde, passiamo al secondo step.
+Secondo upgrade: Laravel 7
+Da Laravel 6 a Laravel 7 ci sono stati un bel po’ di aggiornamenti ma fortunatamente niente di eclatante dal punto di vista delle cracking changes, nel mio caso.
+Laravel 7 usa la versione 5 dei componenti di Symfony e quindi, di conseguenza, occorre apportare qualche modifica alle eccezioni e agli eventuali comandi artisan.
+Lo scaffoldind di autenticazione, se lo usate, è stato esportato in un package ad hoc, laravel/ui versione 2.
+E, cosa non da poco per veder tornare tutti i nostri test verdi, il metodo assertSee e tutti quelli collegati, da questa versione, effettuano l’escape automatico dei dati.
+PS: Con Laravel 7 sono stati introdotti i componenti Blade “X”, da solo un ottimo motivo per effettuare l’upgrade.
+Via di test e, quando è di nuovo tutto verde, passiamo a farci del male con Laravel 8.
+Terzo upgrade: Laravel 8
+Dalla versione 7 alla 8 ci sono stati diversi aggiornamenti, prima fra tutti la necessità di avere almeno PHP 7.3.
+Secondo upgrade complesso, le factory (usate per i test) con Laravel 8 sono state stravolte per essere ora sottoforma di classi. Anche qui se volete bypassare il lavoraccio, esiste un package che permette di utilizzare le factory precedenti. Io ho preferito aggiornare anche quelle. Come?
+Aggiungendo in ogni modello con una factory il trait HasFactory
+rinominando la cartella database/factories in factories.old
+ricreando da da CLI le factories con la nuova struttura
+Importando la definition dalla factory vecchia
+E, infine, con un bel find e replace di $faker-> in $this->faker->
+Ovviamente questo serve solo per creare le factory. Occorre aggiornare anche tutti i test per far sì che usino le nuove class. Anche qui un bel find e replace ci viene in aiuto: da factory(App\Models\User::class) a App\Models\User::factory().
+Anche i seeder necessitano di qualche attenzione, ora sono sotto namespace e la directory che li contiene è stata rinominata da seed a seeders. Molto più in linea con gli standard di nomenclatura di Laravel.
+Maintenance mode: sulla guida lo danno come intervento opzionale ma vi consiglio di aggiungerlo. Evita errori randomici agli utenti che si dovessero trovare sul sito durante le fase di deploying.
+Paginazione: Laravel 8 usa Tailwind (❤️) per la paginazione, se vuoi continuare a usare bootstrap, devi aggiungere Illuminate\Pagination\Paginator::useBootstrap(); al metodo boot della classe AppServiceProvider.
+Rotte: le rotte ora usano la sintassi di classe di PHP, molto utile per abilitare la navigazione all’interno dell’IDE di sviluppo. Anche qui si può continuare ad usare la vecchia strada… ma ovviamente io non l’ho fatto.
+
+// Using PHP callable syntax...
+Route::get('/users', [UserController::class, 'index']);
+
+// Using string syntax...
+Route::get('/users', ‘App\Http\Controllers\UserController@index');
+
+PS: con Laravel 8.25 sono stati introdotti i test in parallelo. In questo modo la mia bella test suite invece di essere eseguita in 88 secondi, viene eseguita in 22. Non male no?
+</body>
+</html>
