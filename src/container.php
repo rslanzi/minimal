@@ -34,6 +34,7 @@ $containerBuilder->register('dispatcher', EventDispatcher::class)
     ->addMethodCall('addSubscriber', [new Reference('listener.router')])
     ->addMethodCall('addSubscriber', [new Reference('listener.response')])
     ->addMethodCall('addSubscriber', [new Reference('listener.exception')]);
+
 $containerBuilder->register('framework', Framework::class)
     ->setArguments([
         new Reference('dispatcher'),
