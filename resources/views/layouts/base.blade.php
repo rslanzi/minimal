@@ -64,6 +64,7 @@
 
 	@include('layouts.partials.nav')
 
+
 	<main class="max-w-full overflow-x-hidden">
 
 		@yield('content')

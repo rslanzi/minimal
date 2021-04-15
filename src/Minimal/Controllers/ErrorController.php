@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ErrorController
 {
-    public function exception(FlattenException $exception)
+    public function exception(FlattenException $exception): Response
     {
         if (Env::get('APP_DEBUG', 'false') === true) {
             $whoops = new \Whoops\Run;

@@ -1,6 +1,8 @@
 <?php
 
 use Rslanzi\Minimal\Env;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 if (! function_exists('env')) {
     /**
@@ -20,9 +22,10 @@ if (! function_exists('env')) {
  * @todo
  */
 if (! function_exists('route')) {
-    function route($routeName, $routeParams = [])
+    function route(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH): string
     {
-        return '/'.$routeName;
+//        return $container->get('router')->generate($route, $parameters, $referenceType);
+        return '/'.$route;
     }
 }
 
@@ -42,5 +45,12 @@ if (! function_exists('__')) {
     function __($text)
     {
         return $text;
+    }
+}
+
+if (! function_exists('dd')) {
+    function dd($value)
+    {
+        return die(dump($value));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rslanzi\Minimal;
+namespace Rslanzi\Minimal\Events;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -8,8 +8,8 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class ResponseEvent extends Event
 {
-    private $request;
-    private $response;
+    private Request $request;
+    private Response $response;
 
     public function __construct(Response $response, Request $request)
     {
@@ -17,12 +17,12 @@ class ResponseEvent extends Event
         $this->request = $request;
     }
 
-    public function getResponse()
+    public function getResponse(): Response
     {
         return $this->response;
     }
 
-    public function getRequest()
+    public function getRequest(): Request
     {
         return $this->request;
     }

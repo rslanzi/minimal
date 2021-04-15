@@ -6,7 +6,7 @@ use eftec\bladeone\BladeOne;
 
 class BaseController
 {
-    protected $blade;
+    private $blade;
 
     public function __construct()
     {
@@ -17,7 +17,7 @@ class BaseController
         $this->blade->pipeEnable = true;
     }
 
-    public function render(string $view, array $params)
+    public function render(string $view, array $params = [])
     {
         return $this->blade->run($view, (array) $params);
     }

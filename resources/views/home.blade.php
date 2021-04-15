@@ -4,7 +4,7 @@
 @section('meta_description'){{ 'Meta description...' }}@endsection
 
 @section('content')
-	
+
 	@component('components.hero')
 		<h1 class="hidden">Minimal Framework</h1>
 		<h2 class="text-4xl tracking-tight leading-10 font-extrabold text-blue-900; sm:text-5xl sm:leading-none; md:text-6xl;">
@@ -35,7 +35,7 @@
 			        /img/desk_1952.jpg 1952w">
 			    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
 			        sizes="(max-width: 1952px) 100vw, 1952px"
-			        src="/img/desk_1952.webp" 
+			        src="/img/desk_1952.webp"
 			        width="1952"
 			        height="1300"
 					alt="Hero image">
@@ -46,7 +46,7 @@
 	@component('components.section')
 		@slot('title')
 			{{ $title ?? 'Title' | ucwords }}
-		@endslot	
+		@endslot
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, sem at placerat maximus, dui dolor elementum ex, sed pharetra nunc diam ut ante. Fusce iaculis ac odio sit amet interdum. Etiam sed ligula elementum, accumsan mauris a, egestas velit. Pellentesque venenatis volutpat ante, eu dictum mi. Duis ut ipsum pulvinar, faucibus metus vitae, rhoncus est. Proin erat risus, pharetra ac hendrerit eget, convallis vitae ligula. Nam nisi sem, hendrerit sed magna vitae, convallis condimentum ex. Aliquam sed fermentum risus. Suspendisse quis ligula a velit fringilla lobortis. Mauris nisl nunc, imperdiet sit amet accumsan et, vulputate quis sem. Vestibulum ante purus, vulputate non mattis in, cursus nec massa.</p>
 	@endcomponent
 
