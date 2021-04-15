@@ -26,4 +26,3 @@ class GoogleListener implements EventSubscriberInterface
         return ['response' => 'onResponse'];
     }
 }
-

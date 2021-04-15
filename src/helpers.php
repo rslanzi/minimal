@@ -1,7 +1,6 @@
 <?php
 
 use Rslanzi\Minimal\Env;
-use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 if (! function_exists('env')) {
@@ -51,6 +50,6 @@ if (! function_exists('__')) {
 if (! function_exists('dd')) {
     function dd($value)
     {
-        return die(dump($value));
+        return exit(dump($value));
     }
 }

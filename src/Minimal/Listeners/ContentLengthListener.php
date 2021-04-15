@@ -1,4 +1,5 @@
 <?php
+
 namespace Rslanzi\Minimal\Listeners;
 
 use Rslanzi\Minimal\Events\ResponseEvent;
@@ -11,7 +12,7 @@ class ContentLengthListener implements EventSubscriberInterface
         $response = $event->getResponse();
         $headers = $response->headers;
 
-        if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {
+        if (! $headers->has('Content-Length') && ! $headers->has('Transfer-Encoding')) {
             $headers->set('Content-Length', strlen($response->getContent()));
         }
     }
@@ -20,6 +21,4 @@ class ContentLengthListener implements EventSubscriberInterface
     {
         return ['response' => 'onResponse'];
     }
-
 }
-
